@@ -18,6 +18,7 @@ public class GameConsole{
 
             result = game.guess(user_guess);
             message = game.getMessage();
+            game.setCount();
 
             if (result) return user_guess;
             System.out.println(message);

@@ -5,6 +5,10 @@ import java.util.Random;
  */
 public class GuessingGame {
     /**
+     * count the number of round that player played
+     */
+    private int Counter;
+    /**
      * upper bound for secret number
      */
     private int secret;
@@ -97,7 +101,24 @@ public class GuessingGame {
         else return "Too large.";
     }
 
+    /**
+     * Provide a started message to the player
+     */
     public String toString(){
         return "Guess a secret number.";
+    }
+
+    /**
+     * Get the game Counter number.
+     */
+    public int getCount(){
+        return Counter;
+    }
+
+    /**
+     * Set the game Counter number.
+     */
+    public void setCount() {
+        ++this.Counter;
     }
 }

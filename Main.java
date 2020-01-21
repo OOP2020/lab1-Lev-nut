@@ -7,7 +7,10 @@ public class Main {
         GameConsole ui = new GameConsole();
         int solution = ui.play(game);
 
+
+
         System.out.println("Right! The secret number is " + solution);
+        System.out.println("Player played round is " + game.getCount());
     }
 }
 
