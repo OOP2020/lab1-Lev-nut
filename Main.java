@@ -5,6 +5,7 @@ public class Main {
         if (args.length > 0) bound = Integer.parseInt( args[0]);
         GuessingGame game = new GuessingGame(bound);
         GameConsole ui = new GameConsole();
+        // GameSolver ui = new GameSolver();
         int solution = ui.play(game);
 
 
