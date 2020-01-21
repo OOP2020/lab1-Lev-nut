@@ -3,8 +3,18 @@
 
 
 public class GameSolver{
-    private int win;
+
+    private int min;
+    private int max;
+    private int guess;
+    private int res;
+    public boolean result;
+    public String message;
+
+
     public int play(GuessingGame game){
+    
+
     /**
      * Play a GuessingGame and return the solution.
      * The game must provide messages (getMessage) containing the
@@ -14,15 +24,47 @@ public class GameSolver{
      * @param game is the GuessingName to solve
      * @return 
      */
+    
+    min = 1;
+    max = game.getUpperBound();;
+    guess = (min + max)/2;
+    res = guess;
+    
+
 
     // Checking every number from 1 to the upperbound values
-    for (win = 1 ; win <= game.getUpperBound() ; win++){
+    while (true){
+        result = game.guess(res);
+        message = game.getMessage();
         game.setCount();
-        // Checking that if the win values comparing with the answer in guess() is true of false
-        if (true == game.guess(win)){
+        System.out.println(res);
+        System.out.println(message);
+
+
+        
+        if (message == "Correct!"){
             break;
         }
+        
+        else if (message == "Too small."){
+            min = ++res;
+        }
+
+        else if (message == "Too large."){
+            max = --res;
+        }
+
+        else if (message == "WAY too small, dude."){
+            max = res + 2;
+        }
+
+        else if (message == "WAY too large, man."){
+            min = res - 2;
+        }
+        
+        res = (min + max)/2;
     }
-    return win;
-}
+
+    return res;
+    }
 }

@@ -82,7 +82,7 @@ public class GuessingGame {
     public void setMessage(String msg) {
         this.message = msg;
     }
-
+    
     /**
      * Create a hint based on the last guess.
      *
