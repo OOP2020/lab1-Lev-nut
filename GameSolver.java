@@ -6,7 +6,6 @@ public class GameSolver{
 
     private int min;
     private int max;
-    private int guess;
     private int res;
     public boolean result;
     public String message;
@@ -27,19 +26,15 @@ public class GameSolver{
     
     min = 1;
     max = game.getUpperBound();;
-    guess = (min + max)/2;
-    res = guess;
-    
+
 
 
     // Checking every number from 1 to the upperbound values
     while (true){
+        res = min + (max - min)/2;
         result = game.guess(res);
         message = game.getMessage();
         game.setCount();
-        System.out.println(res);
-        System.out.println(message);
-
 
         
         if (message == "Correct!"){
@@ -55,14 +50,14 @@ public class GameSolver{
         }
 
         else if (message == "WAY too small, dude."){
-            max = res + 2;
+            min = ++res;
         }
 
         else if (message == "WAY too large, man."){
-            min = res - 2;
+            max = --res;
         }
         
-        res = (min + max)/2;
+
     }
 
     return res;

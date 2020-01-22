@@ -4,8 +4,8 @@ public class Main {
         int bound = 20; //default value
         if (args.length > 0) bound = Integer.parseInt( args[0]);
         GuessingGame game = new GuessingGame(bound);
-        GameConsole ui = new GameConsole();
-        // GameSolver ui = new GameSolver();
+        // GameConsole ui = new GameConsole();
+        GameSolver ui = new GameSolver();
         int solution = ui.play(game);
 
 
