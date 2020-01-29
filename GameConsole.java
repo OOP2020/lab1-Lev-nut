@@ -1,26 +1,38 @@
 import java.util.Scanner;
 
+/**
+ * Control the game by sending info back and foward to other files
+ * 
+ * @author Teeranut Sawanyawat 6210545491
+ */
+public class GameConsole {
 
-public class GameConsole{
-    public Scanner input = new Scanner(System.in);
+    /**
+     * Play a guessing game and return the user guess back if it match with the
+     * secret number
+     * 
+     * @param game is the GuessingName to solve
+     * @return the user guess
+     *
+     */
+    public int play(GuessingGame game) {
 
-    public boolean result;
+        Scanner input = new Scanner(System.in);
+        boolean result;
+        String message;
 
-    public String message;
-
-    public int play(GuessingGame game){
         System.out.println(game.toString());
         System.out.println(game.getMessage());
 
-        while (true){
+        while (true) {
             System.out.print("your guess?  ");
             int user_guess = input.nextInt();
 
             result = game.guess(user_guess);
             message = game.getMessage();
-            game.setCount();
 
-            if (result) return user_guess;
+            if (result)
+                return user_guess;
             System.out.println(message);
         }
     }

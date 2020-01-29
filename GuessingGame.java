@@ -2,6 +2,8 @@ import java.util.Random;
 
 /**
  * Guess a secret number between 1 and an upper bound.
+ * 
+ * @author Teeranut Sawanyawat 6210545491
  */
 public class GuessingGame {
     /**
@@ -11,11 +13,11 @@ public class GuessingGame {
     /**
      * upper bound for secret number
      */
-    private int secret;
+    private int upperBound;
     /**
      * the secret number
      */
-    private int upperBound;
+    private int secret;
     /**
      * hint for most recent guess
      */
@@ -25,7 +27,7 @@ public class GuessingGame {
      * Initialize a new game with a default upperbound.
      */
 
-    public GuessingGame(int upperbound){
+    public GuessingGame(int upperbound) {
         this.upperBound = upperbound;
         secret = getRandomNumber(this.upperBound);
         String hint = "I'm thinking of a number between 1 and " + upperBound;
@@ -35,7 +37,6 @@ public class GuessingGame {
     public GuessingGame() {
         this(100);
     }
-
 
     /**
      * Get a random number between 1 and limit.
@@ -54,17 +55,17 @@ public class GuessingGame {
      * Evaluate a guess.
      *
      * @param number is a guess of the secret number.
-     * @return true    if the guess is correct, false otherwise.
+     * @return true if the guess is correct, false otherwise.
      */
     public boolean guess(int number) {
         message = makeHint(number, secret);
+        ++this.Counter;
         return (number == secret);
     }
 
     /**
-     * Get a message (hint) based on most recent guess.
-     * If nothing has been guessed yet then the hint
-     * describes the game.
+     * Get a message (hint) based on most recent guess. If nothing has been guessed
+     * yet then the hint describes the game.
      *
      * @return a message about game or most recent guess
      */
@@ -82,7 +83,7 @@ public class GuessingGame {
     public void setMessage(String msg) {
         this.message = msg;
     }
-    
+
     /**
      * Create a hint based on the last guess.
      *
@@ -98,27 +99,22 @@ public class GuessingGame {
             return "Too small.";
         else if (number - secret > upperBound / 4)
             return "WAY too large, man.";
-        else return "Too large.";
+        else
+            return "Too large.";
     }
 
     /**
      * Provide a started message to the player
      */
-    public String toString(){
+    public String toString() {
         return "Guess a secret number.";
     }
 
     /**
      * Get the game Counter number.
      */
-    public int getCount(){
+    public int getCount() {
         return Counter;
     }
 
-    /**
-     * Set the game Counter number.
-     */
-    public void setCount() {
-        ++this.Counter;
-    }
 }
