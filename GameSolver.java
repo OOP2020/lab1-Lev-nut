@@ -28,25 +28,17 @@ public class GameSolver {
             res = min + (max - min) / 2;
             game.guess(res);
             String message = game.getMessage();
+            String mes = message.toLowerCase();
 
-
-            if (message.contains("Correct!")) {
+            if (mes.contains("correct!")) {
                 break;
             }
 
-            else if (message.contains("Too small.")) {
+            else if (mes.contains("too small.")) {
                 min = ++res;
             }
 
-            else if (message.contains("Too large.")) {
-                max = --res;
-            }
-
-            else if (message.contains("WAY too small, dude.")) {
-                min = ++res;
-            }
-
-            else if (message.contains("WAY too large, man.")) {
+            else if (mes.contains("too large.")) {
                 max = --res;
             }
 

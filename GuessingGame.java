@@ -6,21 +6,18 @@ import java.util.Random;
  * @author Teeranut Sawanyawat 6210545491
  */
 public class GuessingGame {
-    /**
-     * count the number of round that player played
-     */
-    private int Counter;
-    /**
-     * upper bound for secret number
-     */
+    // count the number of round that player played
+    private int counter;
+
+    // upper bound for secret number
     private int upperBound;
-    /**
-     * the secret number
-     */
+
+    // the secret number
+
     private int secret;
-    /**
-     * hint for most recent guess
-     */
+
+    // hint for most recent guess
+
     private String message;
 
     /**
@@ -59,7 +56,7 @@ public class GuessingGame {
      */
     public boolean guess(int number) {
         message = makeHint(number, secret);
-        ++this.Counter;
+        ++this.counter;
         return (number == secret);
     }
 
@@ -111,10 +108,10 @@ public class GuessingGame {
     }
 
     /**
-     * Get the game Counter number.
+     * Get the game counter number.
      */
     public int getCount() {
-        return Counter;
+        return counter;
     }
 
 }

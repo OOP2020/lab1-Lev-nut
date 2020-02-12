@@ -1,3 +1,9 @@
+/**
+ * Main acts like a combination of code which group all the code from GuessingGame, EchoGame, and GameConsole.
+ * 
+ * @author Teeranut Sawanyawat
+ */
+
 public class Main {
 
     public static void main(String[] args) {

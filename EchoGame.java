@@ -1,3 +1,9 @@
+/**
+ * EchoGame tells the user the secret numbers in it every guesses until the answer is correct.
+ * 
+ * @author Teeranut Sawanyawat 6210545491
+ */
+
 public class EchoGame extends GuessingGame {
     /**
      * Initialize a new instance of EchoGame
