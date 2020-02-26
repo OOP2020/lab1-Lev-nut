@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -20,19 +22,32 @@ public class GameConsole {
         Scanner input = new Scanner(System.in);
         boolean result;
         String message;
+        int user_guess = 0;
+
 
         System.out.println(game.toString());
         System.out.println(game.getMessage());
 
         while (true) {
-            System.out.print("your guess?  ");
-            int user_guess = input.nextInt();
+
+            try {
+                System.out.print("your guess?  ");
+                String str = input.nextLine();
+                user_guess = Integer.parseInt(str);
+            }
+            catch(NoSuchElementException e1){
+                System.exit(0);
+            }
+            catch(NumberFormatException e2) {
+                System.out.println("Please input an integer");
+                continue;
+            }
+
 
             result = game.guess(user_guess);
             message = game.getMessage();
 
-            if (result)
-                return user_guess;
+            if (result) return user_guess;
             System.out.println(message);
         }
     }
